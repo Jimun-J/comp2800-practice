@@ -1,0 +1,50 @@
+/* css style for cards */
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card {
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card h5 { color: grey; }
+
+.card div { width: 100%; }
+
+.card .buttons { width: 20%; }
+
+.card:hover{ background: #ddd; }
+
+.card p { margin: 10px; }
+
+.buttons {
+    position: relative;
+    width: 1%;
+    left: 42%;
+    padding: 0;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 1260px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}

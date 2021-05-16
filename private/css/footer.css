@@ -1,0 +1,19 @@
+.footer {
+    background-color: #ccc;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: black;
+}
+
+h4 {
+    margin-bottom: 5px;
+}

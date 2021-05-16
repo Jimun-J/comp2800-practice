@@ -1,0 +1,93 @@
+/* css style for nav bar */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+nav h1 {
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+}
+
+nav h1 img {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.fa-leaf {
+    color: green;
+    margin: 0 8px;
+}
+
+nav #desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+nav #mobile {
+    display: none;
+}
+
+nav ul li {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+p, h1, a, ul, h2, h5 {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    text-align: right;
+    padding-right: 10px;
+    display: none;
+}
+
+.dropdown i {
+    border: 1px solid green;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.dropdown i:hover {
+    cursor: pointer;
+}
+
+.logout {
+    background: #387A00;
+    padding: 1px 10px;
+    border-radius: 5px;
+}
+
+.logout a {
+    color: white;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 480px) {
+    nav {
+        display: block;
+    }
+    nav #desktop {
+        display: none;
+    }
+    nav ul li {
+        margin-left: 0px;
+    }
+    .dropdown {
+        display: block;
+    }
+}
+
+
+
+

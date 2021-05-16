@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+
+body {
+    max-width: 1260px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Girassol', cursive;
+    box-sizing: boder-box;
+}
+
+.fa-carrot { color: green };
+
+/* css style for form */
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 8px;
+    height: 75px;
+    resize: none;
+}
+
+button {
+    display: block;
+    width: 100px;
+    margin: 0 auto; 
+    border-radius: 10px;
+    padding: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.small-font {
+    font-size: 0.2em;
+}
+
+
+/* update form */
+.update-post input {
+    border: none;
+    border-bottom: 1px red solid;
+    outline: none;
+}
+
+.update-post textarea {
+    border: 1px red solid;
+    outline: none;
+}
+
+.update-post input, .update-post textarea, .update-post label {
+    width: 35%;
+}
+
+::placeholder {
+    color: #ccc;
+}
+

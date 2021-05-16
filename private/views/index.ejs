@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/pop_up.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>COMP2537 - Assignment 2</title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="card-container">
+        <% if (posts.length> 0) { %>
+            <% posts.forEach(post=> { %>
+                <div class="card">
+                    <div class="buttons">
+                        <button class="edit">
+                            <a href="/posts/<%= post._id %>">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </button>
+                        <button class="close" data-id="<%= post._id %>">&times;</button>
+                    </div>
+                    <div class="card-descript">
+                        <a href="/posts/<%= post._id %>">
+                            <h2>
+                                <%= post.title %>
+                            </h2>
+                            <h5 class="small-font">
+                                <%= post.updatedAt %>
+                            </h5>
+                            <p>Price: <%= post.price %>
+                            </p>
+                            <p>Unit: <%= post.unit %>
+                            </p>
+                            <p>Descirption: <%= post.description %>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <p>No Posts</p>
+                        <% } %>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/script.ejs') %>
+    <script src="js/dropdown.js"></script>
+    <script src="js/client.js"></script>
+    
+</body>
+
+</html>

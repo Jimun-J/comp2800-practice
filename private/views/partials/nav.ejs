@@ -1,0 +1,31 @@
+<nav>
+    <div class="sellery">
+        <a href="/">
+            <h1><img src="../../images/about.png" alt=""> Sellery</h1>
+        </a>
+        <% if (user) { %>
+           <p><i class="fas fa-leaf"></i>Welcome! <%= user.name %> <i class="fas fa-leaf"></i></p>
+        <% } %>
+    </div>
+    <div class="dropdown"><i class="fas fa-bars"></i></div>
+
+    <!-- Mobile verison of links -->
+    <ul id="mobile">
+        <li><a href="/">Home</a></li>
+        <li><a href="/post/create">New Post</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <% if (user) { %>
+            <li class="logout"><a href="/logout">Log out</a></li>
+        <% } %>
+    </ul>
+
+    <!-- Desktop version of links -->
+    <ul id="desktop">
+        <li><a href="/">Home</a></li>
+        <li><a href="/post/create">New Post</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <% if (user) { %>
+            <li class="logout"><a href="/logout">Log out</a></li>
+        <% } %>
+    </ul>
+</nav>

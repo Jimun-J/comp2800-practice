@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/nav.css">
+    <link rel="stylesheet" type="text/css" href="../css/button.css">
+    <link rel="stylesheet" type="text/css" href="../css/pop_up.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title>COMP2537 - Assignment 2</title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/pop-up.ejs') %>
+
+    <div class="profile">
+        <img src="https://dummyimage.com/150x150/000/fff" alt="">
+        <div class="profile-desc">
+            <p><%- user.name %></p>
+            <p><%- user.bio %></p>
+            <div class="profile-buttons">
+                <button>Message</button>
+                <button>Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/script.ejs') %>
+    <script src="../js/client.js"></script>
+    <script src="../js/dropdown.js"></script>
+</body>
+
+</html>

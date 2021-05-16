@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP2537 - Assignment 2</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/nav.css">
+
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="create-post">
+        <form action="/posts" method="POST">
+            <label class="title_label" for="title">Post title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="unit" name="unit" min="1" max="100" required>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+            <button id="submit">Confirm</button>
+            <p class="error"></p>
+        </form>
+    </div>
+
+    <%- include('./partials/script.ejs') %>
+    <script src="../js/dropdown.js"></script>
+</body>
+
+</html>

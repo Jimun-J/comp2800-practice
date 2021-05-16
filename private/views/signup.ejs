@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/auth.css">
+    <link rel="stylesheet" type="text/css" href="css/pop_up.css">
+</head>
+
+<body>
+    <%- include('./partials/pop-up.ejs') %>
+
+    <div class="auth_container">
+        <form action="/signup">
+            <h2>Signup</h2>
+            <label for="name">Name</label>
+            <input type="text" name="name" required>
+            <label for="address">Address:</label>
+            <input name="address" id="autocomplete" type="text">
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <label for="email">Email</label>
+            <input type="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+            <button>Sign up</button>
+            <p class="error"></p>
+        </form>
+        <hr>
+        <div>
+            <p>Already have an account? <a href="/login">Log in</a></p>
+        </div>
+    </div>
+
+    <%- include('./partials/script.ejs') %>
+    <script src="../js/signup.js"></script>
+
+    <!-- google maps api from https://www.codexworld.com/autocomplete-address-field-google-maps-javascript-api-places-library-jquery/ -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBhrfs5cFhP7_7f_I2BTdcwp4JnXY5tHeU"></script>
+    <script>
+        $(document).ready(function () {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')), {
+                types: ['address'],
+                componentRestrictions: {
+                    country: "ca"
+                }
+            });
+            
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var userAddress = autocomplete.getPlace();
+                document.getElementById('latitude').value = userAddress.geometry.location.lat();
+                document.getElementById('longitude').value = userAddress.geometry.location.lng();
+            });
+        });
+    </script>
+</body>
+
+</html>
