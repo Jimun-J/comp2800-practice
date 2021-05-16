@@ -43,15 +43,19 @@ app.get('/posts/:id', auth.requireLogin, (req, res) => {
     .then((result) => { res.render('update', { post: result });  });
 });
 
+// routing to update page
+app.get('/posts/details/:id', auth.requireLogin, (req, res) => {
+    const id = req.params.id;
+    Post.findById(id)
+    .then((result) => { res.render('details', { post: result }); });
+});
+
 // routing to about us page
 app.get('/about', auth.requireLogin, (req, res) => {
     res.render('about');
 })
 
-// routing to Profile
-app.get('/profile', auth.requireLogin, (req, res) => {
-    res.render('profile');
-})
+
 
 app.use(routes);
 

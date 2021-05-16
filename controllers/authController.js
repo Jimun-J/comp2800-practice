@@ -31,7 +31,7 @@ module.exports.signup_post = async (req, res) => {
             res.cookie('webToken', token, { httpOnly: true, maxAge: oneDayInSeconds * 1000 });
             res.status(200).json({ user: user._id });
         } catch (err) {
-            let error = "password must be longer than 7 characters long";
+            let error = "password must be longer than 4 characters long";
             if (err.code === 11000) {
                 error = "email is already registered";
             }

@@ -21,27 +21,19 @@
             <% posts.forEach(post=> { %>
                 <div class="card">
                     <div class="buttons">
-                        <button class="edit">
-                            <a href="/posts/<%= post._id %>">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                        </button>
-                        <button class="close" data-id="<%= post._id %>">&times;</button>
                     </div>
                     <div class="card-descript">
-                        <a href="/posts/<%= post._id %>">
+                        <a href="/posts/details/<%= post._id %>">
                             <h2>
                                 <%= post.title %>
                             </h2>
                             <h5 class="small-font">
                                 <%= post.updatedAt %>
                             </h5>
-                            <p>Price: <%= post.price %>
-                            </p>
-                            <p>Unit: <%= post.unit %>
-                            </p>
-                            <p>Descirption: <%= post.description %>
-                            </p>
+                            <p>Price: <%= post.price %></p>
+                            <p>Unit: <%= post.unit %></p>
+                            <p>Descirption: <%= post.description %></p>
+                            <p class="small-font">Posted By <%= post.post_owner_name %></p>
                         </a>
                     </div>
                 </div>

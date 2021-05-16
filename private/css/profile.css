@@ -5,6 +5,7 @@
 }
 
 .profile img {
+    width: 300px;
     border-radius: 150px;
     margin: 20px 50px 20px 20px;
 }
@@ -24,6 +25,37 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+#feed_search {
+    display: inline;
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 200px;
+    padding: 4px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid grey;
+}
+
+#feed_search:focus {
+    border-bottom: 2px solid #387A00;
+}
+
+#feed_search:active {
+	transform: scale(0.90);
+}
+
+#feed_search::placeholder {
+    font-style: italic;
+}
+
+#search {
+    text-align: center;
 }
 
 @media only screen and (max-width: 480px) {

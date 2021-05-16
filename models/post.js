@@ -22,8 +22,29 @@ const postSchema = new Schema({
     description: {
         type: String,
         required: true
-    }
+    },
 
+    post_owner: {
+        type: String,
+        required: true
+    },
+
+    post_owner_name: {
+        type: String,
+        required: true
+    },
+
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    }
 }, { timestamps: true });
 
 const Post = mongoose.model('Post', postSchema);

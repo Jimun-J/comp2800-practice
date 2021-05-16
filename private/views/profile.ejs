@@ -3,23 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/nav.css">
-    <link rel="stylesheet" type="text/css" href="../css/button.css">
-    <link rel="stylesheet" type="text/css" href="../css/pop_up.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/button.css">
+    <link rel="stylesheet" href="/css/pop_up.css">  
+    <link rel="stylesheet" href="/css/card.css">      
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <title>COMP2537 - Assignment 2</title>
 </head>
 
 <body>
     <%- include('./partials/nav.ejs') %>
     <%- include('./partials/pop-up.ejs') %>
-
+    <div class="center">Your Profile Card</div>
+    <hr>
     <div class="profile">
-        <img src="https://dummyimage.com/150x150/000/fff" alt="">
+        <img src="/images/default_profile.jpg" alt="">
         <div class="profile-desc">
             <p><%- user.name %></p>
             <p><%- user.bio %></p>
@@ -29,11 +30,55 @@
             </div>
         </div>
     </div>
+    <hr>
+    <div class="center">Posted Cards By You</div>
+    <div class="search_container">
+        <form id="search">
+            <i class="fas fa-search"></i><input type="text" name="search" placeholder="filter by title" id="feed_search">
+        </form>
+    </div>
+    <hr>
+
+    <div class="card-container">
+        <% if (posts.length> 0) { %>
+            <% posts.forEach(post=> { %>
+                <div class="card">
+                    <div class="buttons">
+                        <button class="edit">
+                            <a href="/posts/<%= post._id %>">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </button>
+                        <button class="close" data-id="<%= post._id %>">&times;</button>
+                    </div>
+                    <div class="card-descript">
+                        <a href="/posts/details/<%= post._id %>">
+                            <h2>
+                                <%= post.title %>
+                            </h2>
+                            <h5 class="small-font">
+                                <%= post.updatedAt %>
+                            </h5>
+                            <p>Price: <%= post.price %>
+                            </p>
+                            <p>Unit: <%= post.unit %>
+                            </p>
+                            <p>Descirption: <%= post.description %>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <p>No Posts</p>
+                        <% } %>
+    </div>
 
     <%- include('./partials/footer.ejs') %>
     <%- include('./partials/script.ejs') %>
-    <script src="../js/client.js"></script>
-    <script src="../js/dropdown.js"></script>
+    <script src="/js/filterByTitle.js"></script>
+    <script src="/js/client.js"></script>
+    <script src="/js/dropdown.js"></script>
 </body>
 
 </html>

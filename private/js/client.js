@@ -60,7 +60,7 @@ $(document).ready(function() {
 
     // redirecting the window
     $('#confirm').click(() => {
-        window.location.href = '/';
+        window.location.href = '/profile';
     });
 
 })

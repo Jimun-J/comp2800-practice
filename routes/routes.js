@@ -9,6 +9,7 @@ router.post('/posts', auth.requireLogin, crud.create_data);
 router.get('/posts', auth.requireLogin, crud.read_data);
 router.get('/posts/:id/update', crud.update_data);
 router.delete('/posts/:id', crud.delete_data);
+router.get('/profile', crud.read_my_cards);
 
 // signup
 router.get('/signup', auth.render_signup_page);
