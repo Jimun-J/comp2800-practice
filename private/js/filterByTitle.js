@@ -1,3 +1,4 @@
+"use strict";
 const titlelist = document.querySelectorAll('.card-descript h2');
 const searchBar = document.forms['search'].querySelector('input');
 

@@ -1,3 +1,4 @@
+"use strict";
 const dropdown = document.querySelector('.dropdown i');
 const nav_ul = document.querySelector('nav #mobile');
 

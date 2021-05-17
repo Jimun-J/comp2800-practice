@@ -1,16 +1,20 @@
+"use strict";
 const User = require('../models/user');
 const webToken = require('jsonwebtoken');
 
 const oneDayInSeconds = 60 * 60 * 24;
 
+// routing to sign up page
 module.exports.render_signup_page = (req, res) => {
     res.render('signup');
 };
 
+// routing to log in page
 module.exports.render_login_page = (req, res) => {
     res.render('login');
 };
 
+// create an account with name, location, email, password
 module.exports.signup_post = async (req, res) => {
     const { name, latitude, longitude, email, password } = req.body;
 
@@ -44,6 +48,7 @@ module.exports.signup_post = async (req, res) => {
     
 };
 
+// log in request handler
 module.exports.login_post = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -59,11 +64,13 @@ module.exports.login_post = async (req, res) => {
     }
 };
 
+// log out request handler
 module.exports.logout = (req, res) => {
-    res.cookie('webToken', '', { maxAge: 1 }); // 1 milisecond
+    res.cookie('webToken', '', { maxAge: 1 });
     res.redirect('/');
 }
 
+// middleware function that protects our routes
 module.exports.requireLogin = (req, res, next) => {
     const token = req.cookies.webToken;
 
@@ -80,6 +87,7 @@ module.exports.requireLogin = (req, res, next) => {
     }
 }
 
+// a function to render a welcome message on view for current user.
 module.exports.getCurrentUser = (req, res, next) => {
     const token = req.cookies.webToken;
 

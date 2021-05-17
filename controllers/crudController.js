@@ -1,3 +1,4 @@
+"use strict";
 const Post = require('../models/post');
 const webToken = require('jsonwebtoken');
 const User = require('../models/user');
