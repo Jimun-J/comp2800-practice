@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="/images/about.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/chat.css">
+    <title>Chat Room</title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div id="chat">
+        <div id="name-div"><%= user.name %></div>
+        <div id="chat-window">
+            <div id="output"></div>
+            <div id="feedback"></div>
+        </div>
+        <input type="text" id="message" placeholder="Message">
+        <button id="send">Send</button>
+    </div>
+
+    <script src="https://kit.fontawesome.com/26da0e4274.js"></script>
+    <script src="/js/dropdown.js"></script>
+</body>
+</html>

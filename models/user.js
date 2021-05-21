@@ -32,7 +32,22 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 5
     },
-    
+
+    profile_pic: {
+        filename: {
+            type: String
+        },
+        contentType: {
+            type: String
+        },
+        imageBase64: {
+            type: String
+        }
+    },
+
+    bio: {
+        type: String
+    }
 });
 
 // pre function that is going to be executed before user is created

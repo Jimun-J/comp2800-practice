@@ -65,3 +65,12 @@ module.exports.delete_data = (req, res) => {
     Post.findByIdAndDelete(id)
     .then((result) => { res.json({ redirect: '/posts'}); });
 }
+
+module.exports.details = (req, res) => {
+    const token = req.cookies.webToken;
+    const id = req.params.id;
+    webToken.verify(token, 'sellery is awesome', async(err, decodedToken) => {
+        Post.findById(id)
+        .then((result) => { res.render('details', { post: result }); });
+    });
+};

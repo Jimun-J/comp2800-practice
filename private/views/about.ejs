@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="shortcut icon" type="image/png" href="images/about.png">
@@ -14,8 +13,8 @@
 <body>
     <%- include('./partials/nav.ejs') %>
     <div class="flex-container">
-        <h1><i class="fas fa-thumbtack"></i>About Sellery</h1>
-        <h2>Transforming The Way The World Works</h2>
+        <h2><i class="fas fa-thumbtack"></i>About Sellery<i class="fas fa-thumbtack"></i></h2>
+        <h3>Transforming The Way The World Works</h3    >
         <p>
             Sellery provides innovative solutions to 
             complex problems in the community gardening world. 
@@ -44,6 +43,7 @@
         
     </div>
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/dropdown.js"></script>
     <script src="https://kit.fontawesome.com/26da0e4274.js"></script>
 </body>
 </html>

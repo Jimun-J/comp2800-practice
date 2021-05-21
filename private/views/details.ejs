@@ -6,12 +6,15 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/details.css">
+    <link rel="stylesheet" href="/css/pop_up.css">
     <link rel="shortcut icon" type="image/png" href="/images/about.png">
     <title>Post Detail</title>
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
+    
     <div id="detail-container">
+        <p class="additional-info"><%= post.updatedAt %></p>
         <div>
             <h2>Title:</h2>
             <p><%= post.title %></p>
@@ -27,9 +30,21 @@
         <div>
             <h2>Description:</h2>
             <p><%= post.description %></p>
+            <p class="additional-info">This post is written by <%= post.post_owner_name%></p>
         </div>
+        <% if (user._id != post.post_owner) { %>
+            <div id="send-message">
+                <p>Are you interested in this produce? Send a Message to Produce Owner: <form action="/message" method="POST"><button id="toChatForm">Send Message</button></form></p>
+            </div>
+            <div id="owner-profile">
+                <p>Do you want to see produce owner's profile? Go to: <form><button id="toOwnerProfile">Owner Profile</button></form></p>
+            </div>
+        <% } %>
     </div>
-    <script src="https://kit.fontawesome.com/26da0e4274.js"></script>
+    <button id="backButton">Back to Feed Page</button>
+    
+    <%- include('./partials/script.ejs') %>
     <script src="/js/dropdown.js"></script>
+    <script src="/js/createChat.js"></script>
 </body>
 </html>

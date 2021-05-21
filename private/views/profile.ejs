@@ -21,21 +21,32 @@
     <div class="center">Your Profile Card</div>
     <hr>
     <div class="profile">
-        <img src="/images/default_profile.jpg" alt="">
+        <% if (user.profile_pic.imageBase64) { %>
+            <div class="circle">
+                <img src="data:<%- user.profile_pic.contentType %>;base64,<%- user.profile_pic.imageBase64 %>" id="profileImage">
+                <i class="fa fa-edit"></i>
+            </div>
+        <% } else { %>
+            <div class="circle">
+                <img src="/images/default_profile.jpg" alt="" id="profileImage">
+                <i class="fa fa-edit"></i>
+            </div>
+        <% } %>
+        <form action="/uploadImage" enctype="multipart/form-data" method="POST">
+            <input type="file" id="inputImage" style="display: none;" onchange="this.form.submit()" name="images">
+        </form>
         <div class="profile-desc">
             <h1><%- user.name %></h1>
             <h4><%- user.bio %></h4>
-            <div class="profile-buttons">
-                <button>Message</button>
-                <button>Profile</button>
-            </div>
+            <button>Edit Profile</button>
         </div>
     </div>
     <hr>
     <div class="center">Posted Cards By You</div>
     <div class="search_container">
         <form id="search">
-            <i class="fas fa-search"></i><input type="text" name="search" placeholder="filter by title" id="feed_search">
+            <i class="fas fa-search"></i>
+            <input type="text" name="search" placeholder="filter by title" id="feed_search">
         </form>
     </div>
     <hr>
@@ -80,6 +91,7 @@
     <script src="/js/filterByTitle.js"></script>
     <script src="/js/client.js"></script>
     <script src="/js/dropdown.js"></script>
+    <script src="/js/profile.js"></script>
 </body>
 
 </html>

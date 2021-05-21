@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="/images/about.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/chat.css">
+    <title>Message</title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="chat-container">
+        <% if (chats.length > 0) { %>
+            <% chats.forEach(chat => { %>
+                <a href="/message/<%= chat._id %>"><div class="chatRoom">Chat between <%= chat.user_names[0] %> and <%= chat.user_names[1] %> </div></a>
+            <% }) %>
+        <% } else { %>
+            <p>No Chats Available</p>
+        <% } %>
+    </div>
+
+    <script src="https://kit.fontawesome.com/26da0e4274.js"></script>
+    <script src="/js/dropdown.js"></script>
+</body>
+</html>
